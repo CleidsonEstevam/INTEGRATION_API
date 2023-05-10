@@ -1,19 +1,18 @@
-﻿
-using IntegrationAPI.Models;
+﻿using IntegrationAPI.Models.RevModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Integration.API.Controllers
 {
     [ApiController]
-    public class ConsumerRev : Controller
+    public class ConsumerRevController : Controller
     {
         [HttpGet]
-        [Route("api/v1/consumerRev/obterToken")]
-        public async Task<IActionResult> ObterToken(string user, string password)
+        [Route("api/v1/consumerRev/getTokenRev")]
+        public async Task<IActionResult> GetTokenRev(string user, string password)
         {
             try
             {
-                Login consumer = new Login();
+                LoginRev consumer = new LoginRev();
 
                 consumer.ChangeUser(user);
                 consumer.ChangePassword(password);
@@ -28,7 +27,7 @@ namespace Integration.API.Controllers
                 {
                     string token = await response.Content.ReadAsStringAsync();
 
-                    // Salvar o token em algum lugar seguro para uso posterior
+                    
 
 
                     return Ok("Token obtido com sucesso!");

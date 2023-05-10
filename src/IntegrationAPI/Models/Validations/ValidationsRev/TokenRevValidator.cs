@@ -1,10 +1,12 @@
 ﻿using FluentValidation;
+using IntegrationAPI.Models.RevModels;
 
-namespace IntegrationAPI.Models.Validations
+namespace IntegrationAPI.Models.Validations.ValidationsRev
 {
-    public class UserValidator : AbstractValidator<Login>
+    public class TokenRevValidator : AbstractValidator<TokenRev>
     {
-        public UserValidator()
+
+        public TokenRevValidator()
         {
             RuleFor(x => x)
               .NotEmpty()

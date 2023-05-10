@@ -1,9 +1,10 @@
 ﻿using IntegrationAPI.Excepitions;
 using IntegrationAPI.Models.Validations;
+using IntegrationAPI.Models.Validations.ValidationsRev;
 
-namespace IntegrationAPI.Models
+namespace IntegrationAPI.Models.RevModels
 {
-    public class Login : BaseEntity
+    public class LoginRev : BaseEntity
     {
         public string? User { get; private set; }
         public string? Password { get; private set; }
@@ -23,12 +24,12 @@ namespace IntegrationAPI.Models
 
 
         //EF
-        public Login(){}
+        public LoginRev() { }
 
         //auto validação
         public override bool Validate()
         {
-            var validator = new UserValidator();
+            var validator = new UserRevValidator();
 
             var validation = validator.Validate(this);
 
