@@ -20,16 +20,13 @@ namespace Integration.API.Controllers
                 string apiUrl =  $"http://api.reval.net/api/get-token?username={consumer.User}&password={consumer.Password}";
 
                 HttpClient client = new HttpClient();
-
                 var response = await client.GetAsync(apiUrl);
-
                 if (response.IsSuccessStatusCode)
                 {
+                    TokenRev infoToken = new TokenRev();
+
                     string token = await response.Content.ReadAsStringAsync();
-
-                    
-
-
+                    infoToken.TokenHandler(token);
                     return Ok("Token obtido com sucesso!");
 
                 }

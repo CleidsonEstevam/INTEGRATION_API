@@ -26,6 +26,12 @@ namespace IntegrationAPI.Models.RevModels
         //EF
         public LoginRev() { }
 
+        public LoginRev(string? user, string? password)
+        {
+            User = user;
+            Password = password;
+        }
+
         //auto validação
         public override bool Validate()
         {
